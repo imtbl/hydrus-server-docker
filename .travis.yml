@@ -1,0 +1,8 @@
+services:
+  - docker
+install:
+  - docker build . -t hydrus-server
+  - docker run -d hydrus-server
+script:
+  - '[ $(docker ps | grep -c hydrus-server) -eq 1 ]'
+  - docker inspect -f "{{ .State.Running }}" $(docker ps -aq) | grep -zoPq "true"

@@ -29,8 +29,6 @@ RUN rm $(ls | grep "Linux.-.Executable.tar.gz") \
 
 RUN mkdir /data && chown -R hydrus:hydrus /data
 
-VOLUME /data
-
 COPY docker-entrypoint.sh /usr/local/bin/docker-entrypoint
 RUN chmod +x /usr/local/bin/docker-entrypoint
 

@@ -67,13 +67,6 @@ versions.
 
 ## Usage
 
-hydrus-server-docker mounts a volume on `/data` that is used to store the
-databases and media. It is highly recommended to create a named volume:
-
-```zsh
-user@local:~$ docker volume create hydrus-server-data
-```
-
 Likewise, you need to bind the exposed ports. This can be done automatically
 using `-P` but it is recommended to bind them manually instead since having
 changing ports every time you run a new container might be annoying when used
@@ -90,7 +83,17 @@ for the server administration service while `45871` and `45872` are used for
 repositories. You will generally have two (one for tags and one for files), but
 if you add more, you will also need to expose additional ports.
 
-After creating your named volume, you can run the container:
+Per default, hydrus-server-docker stores its databases and media inside the
+`/data` directory. It is highly recommended to create a named volume and mount
+it to the same location if you wish to persist the data beyond the lifetime of
+the container and/or access it on the host:
+
+```zsh
+user@local:~$ docker volume create hydrus-server-data
+```
+
+After creating your named volume, you can run the container. Here is a full
+example with all the options mentioned above:
 
 ```zsh
 user@local:~$ docker run -p 45870:45870 -p 45871:45871 -p 45872:45872 -v hydrus-server-data:/data -d mserajnik/hydrus-server-docker

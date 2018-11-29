@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [1.0.1] - 2018-11-29
+
 ### Fixed
 
 + Removed unnecessary `VOLUME` declaration in `Dockerfile`
@@ -18,4 +20,5 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 + Initial release
 
-[Unreleased]: https://github.com/mserajnik/hydrus-server-docker/compare/1.0.0...develop
+[Unreleased]: https://github.com/mserajnik/hydrus-server-docker/compare/1.0.1...develop
+[1.0.1]: https://github.com/mserajnik/hydrus-server-docker/compare/1.0.0...1.0.1

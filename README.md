@@ -67,7 +67,7 @@ versions.
 
 ## Usage
 
-Likewise, you need to bind the exposed ports. This can be done automatically
+First, you need to bind the exposed ports. This can be done automatically
 using `-P` but it is recommended to bind them manually instead since having
 changing ports every time you run a new container might be annoying when used
 in combination with other services.
@@ -115,8 +115,8 @@ host.
 ## Caveats
 
 + The built image also includes the hydrus client due to the built releases
-  always including both of it and the server. This adds quite a bit of size to
-  the image.
+  always including both it and the server. This adds quite a bit of size to the
+  image.
 + To upgrade hydrus server to a new version, you need to either make a new
   build yourself (when using `--no-cache` it will automatically download the
   latest version of hydrus server), upgrade it directly inside the running

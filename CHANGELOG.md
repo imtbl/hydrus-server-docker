@@ -7,11 +7,15 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+### Fixed
+
++ Fixed errors in readme
+
 ## [1.0.1] - 2018-11-29
 
 ### Fixed
 
-+ Removed unnecessary `VOLUME` declaration in `Dockerfile`
++ Removed unnecessary `VOLUME` declaration in Dockerfile
   + see [this article](https://boxboat.com/2017/01/23/volumes-and-dockerfiles-dont-mix/)
 
 ## 1.0.0 - 2018-11-29

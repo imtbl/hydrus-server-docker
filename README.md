@@ -1,8 +1,8 @@
 # hydrus-server-docker [![hydrus server version][hydrus-server-badge]][hydrus-server-version] [![Build status][travis-badge]][travis] [![Docker Hub build][docker-hub-badge]][docker-hub]
 
-> Built version of [hydrus server][hydrus-server] running on Debian
+> Compiled version of [hydrus server][hydrus-server] running on Debian
 
-This is a simple Debian-based Docker setup for running the built version of
+This is a simple Debian-based Docker setup for running the compiled version of
 [hydrus server][hydrus-server]. It was mainly created for making it easier to
 run hydrus server together with [hydrusrv][hydrusrv], but can of course also be
 used on its own.
@@ -114,9 +114,8 @@ host.
 
 ## Caveats
 
-+ The built image also includes the hydrus client due to the built releases
-  always including both it and the server. This adds quite a bit of size to the
-  image.
++ The image also includes the hydrus client due to the compiled releases always
+  including both it and the server. This adds quite a bit of size to the image.
 + To upgrade hydrus server to a new version, you need to either make a new
   build yourself (when using `--no-cache` it will automatically download the
   latest version of hydrus server), upgrade it directly inside the running

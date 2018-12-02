@@ -7,6 +7,13 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [1.1.0] - 2018-12-02
+
+### Changed
+
++ Reduced image size
++ Changed terminology (for aesthetic reasons)
+
 ## [1.0.2] - 2018-11-30
 
 ### Fixed
@@ -26,6 +33,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 + Initial release
 
-[Unreleased]: https://github.com/mserajnik/hydrus-server-docker/compare/1.0.2...develop
+[Unreleased]: https://github.com/mserajnik/hydrus-server-docker/compare/1.1.0...develop
+[1.1.0]: https://github.com/mserajnik/hydrus-server-docker/compare/1.0.2...1.1.0
 [1.0.2]: https://github.com/mserajnik/hydrus-server-docker/compare/1.0.1...1.0.2
 [1.0.1]: https://github.com/mserajnik/hydrus-server-docker/compare/1.0.0...1.0.1

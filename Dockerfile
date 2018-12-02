@@ -1,6 +1,4 @@
-FROM debian:stretch
-
-RUN apt-get update && apt-get install -y ffmpeg curl wget
+FROM debian:stretch-slim
 
 ARG HOST_USER_ID=1000
 ARG HOST_GROUP_ID=1000
@@ -18,16 +16,18 @@ RUN \
 
 WORKDIR /usr/src/app
 
-RUN wget "https://www.github.com$( \
+RUN apt-get update && \
+  apt-get install -y ca-certificates curl ffmpeg wget --no-install-recommends && \
+  rm -rf /var/lib/apt/lists/* && \
+  wget "https://www.github.com$( \
   curl -sL https://github.com/hydrusnetwork/hydrus/releases/latest \
   | grep 'Linux.-.Executable.tar.gz' \
-  | sed -n 's/.*href="\([^"]*\).*/\1/p')"
-
-RUN tar zxvf $(ls | grep "Linux.-.Executable.tar.gz") --strip-components 1
-RUN rm $(ls | grep "Linux.-.Executable.tar.gz") \
-  && chown -R hydrus:hydrus /usr/src/app
-
-RUN mkdir /data && chown -R hydrus:hydrus /data
+  | sed -n 's/.*href="\([^"]*\).*/\1/p')" && \
+  tar zxvf $(ls | grep "Linux.-.Executable.tar.gz") --strip-components 1 && \
+  rm $(ls | grep "Linux.-.Executable.tar.gz") && \
+  chown -R hydrus:hydrus /usr/src/app && \
+  mkdir /data && chown -R hydrus:hydrus /data && \
+  apt-get remove ca-certificates curl wget -y
 
 COPY docker-entrypoint.sh /usr/local/bin/docker-entrypoint
 RUN chmod +x /usr/local/bin/docker-entrypoint

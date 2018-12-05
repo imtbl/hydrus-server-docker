@@ -1,10 +1,10 @@
 #!/bin/bash
 
-stop_server() {
+stop() {
   ./server stop -d="/data"
 }
 
-trap "stop_server" SIGTERM
+trap "stop" SIGTERM
 
 ./server -d="/data" &
 

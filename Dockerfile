@@ -27,7 +27,8 @@ RUN apt-get update && \
   rm $(ls | grep "Linux.-.Executable.tar.gz") && \
   chown -R hydrus:hydrus /usr/src/app && \
   mkdir /data && chown -R hydrus:hydrus /data && \
-  apt-get remove ca-certificates curl wget -y
+  apt-get remove ca-certificates curl wget -y && \
+  apt-get autoremove -y
 
 COPY docker-entrypoint.sh /usr/local/bin/docker-entrypoint
 RUN chmod +x /usr/local/bin/docker-entrypoint

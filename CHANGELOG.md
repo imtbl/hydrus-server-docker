@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+### Fixed
+
++ Rolled hydrus server version back to 334 due to issues with 335
+
 ## [1.4.0] - 2019-01-13
 
 ### Changed

@@ -7,7 +7,7 @@ This is a simple Debian-based Docker setup for running the compiled version of
 run hydrus server together with [hydrusrv][hydrusrv], but can of course also be
 used on its own.
 
-The latest build runs [hydrus server version 335][hydrus-server-version].
+The latest build runs [hydrus server version 334][hydrus-server-version].
 
 ## Table of contents
 
@@ -35,7 +35,7 @@ By default, this will pull the latest build. To specify an image with a
 specific version of hydrus server, provide the version number as tag, e.g.:
 
 ```zsh
-user@local:~$ docker pull mserajnik/hydrus-server-docker:335
+user@local:~$ docker pull mserajnik/hydrus-server-docker:334
 ```
 
 See [here][docker-hub-tags] for all the available version numbers/tags.
@@ -116,12 +116,6 @@ host.
 
 + The image also includes the hydrus client due to the compiled releases always
   including both it and the server. This adds quite a bit of size to the image.
-+ To upgrade hydrus server to a new version, you need to either make a new
-  build yourself (when using `--no-cache` it will automatically download the
-  latest version of hydrus server), upgrade it directly inside the running
-  container or wait until I make a new release. I will try to keep up with
-  every new hydrus release (usually weekly on Wednesdays), but cannot make any
-  promises.
 
 ## Donate
 
@@ -153,13 +147,13 @@ You are welcome to help out!
 
 [hydrus-server]: http://hydrusnetwork.github.io/hydrus/
 [hydrusrv]: https://github.com/mserajnik/hydrusrv
-[hydrus-server-version]: https://github.com/hydrusnetwork/hydrus/releases/tag/v335
+[hydrus-server-version]: https://github.com/hydrusnetwork/hydrus/releases/tag/v334
 [docker-hub]: https://hub.docker.com/r/mserajnik/hydrus-server-docker/
 [docker-hub-tags]: https://hub.docker.com/r/mserajnik/hydrus-server-docker/tags/
 [docker]: https://www.docker.com/
 [semantic-versioning]: https://semver.org/
 
-[hydrus-server-badge]: https://img.shields.io/badge/hydrus%20server-version%20335-blue.svg
+[hydrus-server-badge]: https://img.shields.io/badge/hydrus%20server-version%20334-blue.svg
 
 [travis]: https://travis-ci.com/mserajnik/hydrus-server-docker
 [travis-badge]: https://travis-ci.com/mserajnik/hydrus-server-docker.svg

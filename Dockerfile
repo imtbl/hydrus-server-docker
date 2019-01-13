@@ -17,17 +17,14 @@ RUN \
 WORKDIR /usr/src/app
 
 RUN apt-get update && \
-  apt-get install -y ca-certificates curl ffmpeg wget --no-install-recommends && \
+  apt-get install -y ca-certificates ffmpeg wget --no-install-recommends && \
   rm -rf /var/lib/apt/lists/* && \
-  wget "https://www.github.com$( \
-  curl -sL https://github.com/hydrusnetwork/hydrus/releases/latest \
-  | grep 'Linux.-.Executable.tar.gz' \
-  | sed -n 's/.*href="\([^"]*\).*/\1/p')" && \
+  wget "https://github.com/hydrusnetwork/hydrus/releases/download/v334/Hydrus.Network.334.-.Linux.-.Executable.tar.gz" && \
   tar zxvf $(ls | grep "Linux.-.Executable.tar.gz") --strip-components 1 && \
   rm $(ls | grep "Linux.-.Executable.tar.gz") && \
   chown -R hydrus:hydrus /usr/src/app && \
   mkdir /data && chown -R hydrus:hydrus /data && \
-  apt-get remove ca-certificates curl wget -y && \
+  apt-get remove ca-certificates wget -y && \
   apt-get autoremove -y
 
 COPY docker-entrypoint.sh /usr/local/bin/docker-entrypoint

@@ -7,6 +7,13 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+### Changed
+
++ Updated hydrus server version
++ Updated setup to run hydrus server from source (instead of the pre-compiled
+  executable)
++ Switched base image to Alpine (instead of Debian)
+
 ## [1.4.1] - 2019-01-13
 
 ### Fixed

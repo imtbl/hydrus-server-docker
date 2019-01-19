@@ -1,11 +1,13 @@
-#!/bin/bash
+#!/bin/sh
+
+source venv/bin/activate
 
 stop() {
-  ./server stop -d="/data"
+  ./server.py stop -d="/data"
 }
 
 trap "stop" SIGTERM
 
-./server -d="/data" &
+./server.py -d="/data" &
 
 wait $!

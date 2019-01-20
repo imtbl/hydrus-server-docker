@@ -1,23 +1,23 @@
 # hydrus-server-docker [![hydrus server version][hydrus-server-badge]][hydrus-server-version] [![Build status][travis-badge]][travis] [![Docker Hub build][docker-hub-badge]][docker-hub]
 
-> Compiled version of [hydrus server][hydrus-server] running on Debian
+> [hydrus server][hydrus-server] running on Alpine
 
-This is a simple Debian-based Docker setup for running the compiled version of
-[hydrus server][hydrus-server]. It was mainly created for making it easier to
-run hydrus server together with [hydrusrv][hydrusrv], but can of course also be
-used on its own.
+This is a simple Alpine-based Docker setup for running
+[hydrus server][hydrus-server] from source. It was mainly created for making it
+easier to run hydrus server together with [hydrusrv][hydrusrv], but can of
+course also be used on its own.
 
-The latest build runs [hydrus server version 334][hydrus-server-version].
+The latest build runs [hydrus server version 336][hydrus-server-version].
 
 ## Table of contents
 
 + [Install](#install)
   + [Dependencies](#dependencies)
   + [Updating](#updating)
+    + [Upgrading from 1.x to 2.x](#upgrading-from-1x-to-2x)
 + [Usage](#usage)
   + [Additional configuration when building](#additional-configuration-when-building)
     + [UID/GID](#uidgid)
-+ [Caveats](#caveats)
 + [Donate](#donate)
 + [Maintainer](#maintainer)
 + [Contribute](#contribute)
@@ -35,7 +35,7 @@ By default, this will pull the latest build. To specify an image with a
 specific version of hydrus server, provide the version number as tag, e.g.:
 
 ```zsh
-user@local:~$ docker pull mserajnik/hydrus-server-docker:334
+user@local:~$ docker pull mserajnik/hydrus-server-docker:336
 ```
 
 See [here][docker-hub-tags] for all the available version numbers/tags.
@@ -55,7 +55,7 @@ user@local:hydrus-server-docker$ docker build . -t hydrus-server-docker
 ### Updating
 
 If you have installed via Docker Hub, just pull the updated image. Otherwise,
-just pull from this repository and make a new build.
+pull from this repository and make a new build.
 
 This repository follows [semantic versioning][semantic-versioning] and any
 breaking changes that require additional attention will be released under a new
@@ -64,6 +64,19 @@ are therefore always safe to simply install via the routine mentioned before.
 
 When necessary, this section will be expanded with upgrade guides to new major
 versions.
+
+#### Upgrading from 1.x to 2.x
+
+Upgrading from `1.x` to `2.x` can be done via pulling the updated image from
+Docker Hub or building it yourself and requires no further manual changes.
+
+Since there have been issues with running the pre-compiled version of hydrus
+server 335+ (which made the switch to Python 3) on the previous Docker setup,
+starting with `2.0.0`, the Docker image is now based on Alpine (instead of
+Debian) and runs hydrus server from source.
+
+This approximately halves the resulting image size while at the same time
+making it easier to adapt for future changes/dependencies.
 
 ## Usage
 
@@ -112,11 +125,6 @@ with different ID's without hassle. In such a case, `HOST_USER_ID` and
 `HOST_GROUP_ID` should match the user that is going to access the data on the
 host.
 
-## Caveats
-
-+ The image also includes the hydrus client due to the compiled releases always
-  including both it and the server. This adds quite a bit of size to the image.
-
 ## Donate
 
 If you like hydrus-server-docker and want to buy me a coffee, feel free to
@@ -147,13 +155,13 @@ You are welcome to help out!
 
 [hydrus-server]: http://hydrusnetwork.github.io/hydrus/
 [hydrusrv]: https://github.com/mserajnik/hydrusrv
-[hydrus-server-version]: https://github.com/hydrusnetwork/hydrus/releases/tag/v334
+[hydrus-server-version]: https://github.com/hydrusnetwork/hydrus/releases/tag/v336
 [docker-hub]: https://hub.docker.com/r/mserajnik/hydrus-server-docker/
 [docker-hub-tags]: https://hub.docker.com/r/mserajnik/hydrus-server-docker/tags/
 [docker]: https://www.docker.com/
 [semantic-versioning]: https://semver.org/
 
-[hydrus-server-badge]: https://img.shields.io/badge/hydrus%20server-version%20334-blue.svg
+[hydrus-server-badge]: https://img.shields.io/badge/hydrus%20server-version%20336-blue.svg
 
 [travis]: https://travis-ci.com/mserajnik/hydrus-server-docker
 [travis-badge]: https://travis-ci.com/mserajnik/hydrus-server-docker.svg

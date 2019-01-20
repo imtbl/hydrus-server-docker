@@ -1,4 +1,4 @@
-FROM debian:stretch-slim
+FROM python:3.7-alpine
 
 ARG HOST_USER_ID=1000
 ARG HOST_GROUP_ID=1000
@@ -8,24 +8,56 @@ ENV HOST_GROUP_ID=$HOST_GROUP_ID
 
 RUN \
   if [ $(getent group ${HOST_GROUP_ID}) ]; then \
-    useradd -r -u ${HOST_USER_ID} hydrus; \
+    adduser -D -u ${HOST_USER_ID} hydrus; \
   else \
-    groupadd -g ${HOST_GROUP_ID} hydrus && \
-    useradd -r -u ${HOST_USER_ID} -g hydrus hydrus; \
+    addgroup -g ${HOST_GROUP_ID} hydrus && \
+    adduser -D -u ${HOST_USER_ID} -G hydrus hydrus; \
   fi
 
 WORKDIR /usr/src/app
 
-RUN apt-get update && \
-  apt-get install -y ca-certificates ffmpeg wget --no-install-recommends && \
-  rm -rf /var/lib/apt/lists/* && \
-  wget "https://github.com/hydrusnetwork/hydrus/releases/download/v334/Hydrus.Network.334.-.Linux.-.Executable.tar.gz" && \
-  tar zxvf $(ls | grep "Linux.-.Executable.tar.gz") --strip-components 1 && \
-  rm $(ls | grep "Linux.-.Executable.tar.gz") && \
+RUN \
+  wget "https://github.com/hydrusnetwork/hydrus/archive/v336.tar.gz" && \
+  tar zxvf $(ls | grep ".tar.gz") --strip-components 1 && \
+  rm $(ls | grep ".tar.gz") && \
+  sed -i '/from include import HydrusPy2To3/d' ./server.py && \
+  sed -i '/HydrusPy2To3.do_2to3_test()/d' ./server.py && \
   chown -R hydrus:hydrus /usr/src/app && \
+  chmod +x server.py && \
+  chmod +x bin/swfrender_linux bin/upnpc_linux && \
+  rm \
+    bin/swfrender_osx \
+    bin/swfrender_win32.exe \
+    bin/upnpc_osx \
+    bin/upnpc_win32.exe && \
   mkdir /data && chown -R hydrus:hydrus /data && \
-  apt-get remove ca-certificates wget -y && \
-  apt-get autoremove -y
+  apk --no-cache add \
+    build-base \
+    ffmpeg \
+    jpeg-dev \
+    libffi-dev \
+    linux-headers \
+    openssl \
+    openssl-dev && \
+  pip install virtualenv && \
+  virtualenv venv && \
+  source venv/bin/activate && \
+  pip install \
+    beautifulsoup4~=4.7.1 \
+    lz4~=2.1.6 \
+    numpy~=1.16.0 \
+    pillow~=5.4.1 \
+    psutil~=5.4.8 \
+    pycryptodome~=3.7.3 \
+    pylzma~=0.5.0 \
+    pyopenssl~=18.0.0 \
+    pyyaml~=3.13 \
+    requests~=2.21.0 \
+    send2trash~=1.5.0 \
+    service_identity~=18.1.0 \
+    twisted~=18.9.0 && \
+  rm -r ~/.cache && \
+  apk del build-base jpeg-dev libffi-dev linux-headers openssl-dev
 
 COPY docker-entrypoint.sh /usr/local/bin/docker-entrypoint
 RUN chmod +x /usr/local/bin/docker-entrypoint

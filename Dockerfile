@@ -17,11 +17,9 @@ RUN \
 WORKDIR /usr/src/app
 
 RUN \
-  wget "https://github.com/hydrusnetwork/hydrus/archive/v336.tar.gz" && \
+  wget "https://github.com/hydrusnetwork/hydrus/archive/v337.tar.gz" && \
   tar zxvf $(ls | grep ".tar.gz") --strip-components 1 && \
   rm $(ls | grep ".tar.gz") && \
-  sed -i '/from include import HydrusPy2To3/d' ./server.py && \
-  sed -i '/HydrusPy2To3.do_2to3_test()/d' ./server.py && \
   chown -R hydrus:hydrus /usr/src/app && \
   chmod +x server.py && \
   chmod +x bin/swfrender_linux bin/upnpc_linux && \

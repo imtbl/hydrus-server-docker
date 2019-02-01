@@ -17,7 +17,7 @@ RUN \
 WORKDIR /usr/src/app
 
 RUN \
-  wget "https://github.com/hydrusnetwork/hydrus/archive/v337.tar.gz" && \
+  wget "https://github.com/hydrusnetwork/hydrus/archive/v338.tar.gz" && \
   tar zxvf $(ls | grep ".tar.gz") --strip-components 1 && \
   rm $(ls | grep ".tar.gz") && \
   chown -R hydrus:hydrus /usr/src/app && \
@@ -43,10 +43,9 @@ RUN \
   pip install \
     beautifulsoup4~=4.7.1 \
     lz4~=2.1.6 \
-    numpy~=1.16.0 \
+    numpy~=1.16.1 \
     pillow~=5.4.1 \
     psutil~=5.4.8 \
-    pycryptodome~=3.7.3 \
     pylzma~=0.5.0 \
     pyopenssl~=18.0.0 \
     pyyaml~=3.13 \

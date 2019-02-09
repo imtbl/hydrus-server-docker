@@ -43,7 +43,7 @@ See [here][docker-hub-tags] for all the available version numbers/tags.
 Alternatively, you can clone this repository and build the image yourself:
 
 ```zsh
-user@local:~$ git clone https://github.com/mserajnik/hydrus-server-docker.git
+user@local:~$ git clone --recurse-submodules https://github.com/mserajnik/hydrus-server-docker.git
 user@local:~$ cd hydrus-server-docker
 user@local:hydrus-server-docker$ docker build . -t hydrus-server-docker
 ```

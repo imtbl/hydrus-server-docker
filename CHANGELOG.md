@@ -7,6 +7,12 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+### Changed
+
++ Updated hydrus server version
++ Included hydrus server as a Git submodule instead of downloading the sources
+  when building
+
 ## [2.2.0] - 2019-02-01
 
 ### Changed

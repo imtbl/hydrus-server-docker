@@ -16,10 +16,9 @@ RUN \
 
 WORKDIR /usr/src/app
 
+COPY ./hydrus .
+
 RUN \
-  wget "https://github.com/hydrusnetwork/hydrus/archive/v338.tar.gz" && \
-  tar zxvf $(ls | grep ".tar.gz") --strip-components 1 && \
-  rm $(ls | grep ".tar.gz") && \
   chown -R hydrus:hydrus /usr/src/app && \
   chmod +x server.py && \
   chmod +x bin/swfrender_linux bin/upnpc_linux && \
@@ -36,7 +35,8 @@ RUN \
     libffi-dev \
     linux-headers \
     openssl \
-    openssl-dev && \
+    openssl-dev \
+    zlib-dev && \
   pip install virtualenv && \
   virtualenv venv && \
   source venv/bin/activate && \
@@ -54,7 +54,7 @@ RUN \
     service_identity~=18.1.0 \
     twisted~=18.9.0 && \
   rm -r ~/.cache && \
-  apk del build-base jpeg-dev libffi-dev linux-headers openssl-dev
+  apk del build-base jpeg-dev libffi-dev linux-headers openssl-dev zlib-dev
 
 COPY docker-entrypoint.sh /usr/local/bin/docker-entrypoint
 RUN chmod +x /usr/local/bin/docker-entrypoint

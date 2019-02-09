@@ -1,0 +1,3 @@
+[submodule "hydrus"]
+  path = hydrus
+  url = https://github.com/hydrusnetwork/hydrus

@@ -7,6 +7,13 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [2.4.0] - 2019-02-15
+
+### Changed
+
++ Excluded `.git` directories from Docker image
++ Updated hydrus server version
+
 ## [2.3.1] - 2019-02-10
 
 ### Fixed
@@ -93,7 +100,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 + Initial release
 
-[Unreleased]: https://github.com/mserajnik/hydrus-server-docker/compare/2.3.1...develop
+[Unreleased]: https://github.com/mserajnik/hydrus-server-docker/compare/2.4.0...develop
+[2.4.0]: https://github.com/mserajnik/hydrus-server-docker/compare/2.3.1...2.4.0
 [2.3.1]: https://github.com/mserajnik/hydrus-server-docker/compare/2.3.0...2.3.1
 [2.3.0]: https://github.com/mserajnik/hydrus-server-docker/compare/2.2.0...2.3.0
 [2.2.0]: https://github.com/mserajnik/hydrus-server-docker/compare/2.1.0...2.2.0

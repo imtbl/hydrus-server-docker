@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+### Changed
+
++ Excluded `.git` directories from Docker image
+
 ## [2.3.1] - 2019-02-10
 
 ### Fixed

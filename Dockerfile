@@ -43,7 +43,7 @@ RUN \
   pip install \
     beautifulsoup4~=4.7.1 \
     lz4~=2.1.6 \
-    numpy~=1.16.1 \
+    numpy~=1.16.2 \
     pillow~=5.4.1 \
     psutil~=5.4.8 \
     pylzma~=0.5.0 \

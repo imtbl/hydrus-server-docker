@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [2.5.0] - 2019-03-04
+
 ### Changed
 
 + Added container healthchecks
@@ -105,7 +107,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 + Initial release
 
-[Unreleased]: https://github.com/mserajnik/hydrus-server-docker/compare/2.4.0...develop
+[Unreleased]: https://github.com/mserajnik/hydrus-server-docker/compare/2.5.0...develop
+[2.5.0]: https://github.com/mserajnik/hydrus-server-docker/compare/2.4.0...2.5.0
 [2.4.0]: https://github.com/mserajnik/hydrus-server-docker/compare/2.3.1...2.4.0
 [2.3.1]: https://github.com/mserajnik/hydrus-server-docker/compare/2.3.0...2.3.1
 [2.3.0]: https://github.com/mserajnik/hydrus-server-docker/compare/2.2.0...2.3.0

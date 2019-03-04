@@ -43,7 +43,7 @@ RUN \
   pip install \
     beautifulsoup4~=4.7.1 \
     lz4~=2.1.6 \
-    numpy~=1.16.1 \
+    numpy~=1.16.2 \
     pillow~=5.4.1 \
     psutil~=5.4.8 \
     pylzma~=0.5.0 \
@@ -62,6 +62,10 @@ RUN chmod +x /usr/local/bin/docker-entrypoint
 EXPOSE 45870/tcp
 EXPOSE 45871/tcp
 EXPOSE 45872/tcp
+
+HEALTHCHECK --interval=1m --timeout=10s --retries=3 \
+  CMD wget --quiet --tries=1 --no-check-certificate --spider \
+    https://localhost:45870 || exit 1
 
 USER hydrus
 

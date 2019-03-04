@@ -63,6 +63,10 @@ EXPOSE 45870/tcp
 EXPOSE 45871/tcp
 EXPOSE 45872/tcp
 
+HEALTHCHECK --interval=1m --timeout=10s --retries=3 \
+  CMD wget --quiet --tries=1 --no-check-certificate --spider \
+    https://localhost:45870 || exit 1
+
 USER hydrus
 
 ENTRYPOINT ["docker-entrypoint"]

@@ -3,9 +3,7 @@
 > [hydrus server][hydrus-server] running on Alpine
 
 This is a simple Alpine-based Docker setup for running
-[hydrus server][hydrus-server] from source. It was mainly created for making it
-easier to run hydrus server together with [hydrusrv][hydrusrv], but can of
-course also be used on its own.
+[hydrus server][hydrus-server] from source.
 
 The latest build runs [hydrus server version 342][hydrus-server-version].
 
@@ -154,7 +152,6 @@ You are welcome to help out!
 [MIT](LICENSE.md) © Michael Serajnik
 
 [hydrus-server]: http://hydrusnetwork.github.io/hydrus/
-[hydrusrv]: https://github.com/mserajnik/hydrusrv
 [hydrus-server-version]: https://github.com/hydrusnetwork/hydrus/releases/tag/v342
 [docker-hub]: https://hub.docker.com/r/mserajnik/hydrus-server-docker/
 [docker-hub-tags]: https://hub.docker.com/r/mserajnik/hydrus-server-docker/tags/

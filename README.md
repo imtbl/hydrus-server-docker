@@ -3,11 +3,9 @@
 > [hydrus server][hydrus-server] running on Alpine
 
 This is a simple Alpine-based Docker setup for running
-[hydrus server][hydrus-server] from source. It was mainly created for making it
-easier to run hydrus server together with [hydrusrv][hydrusrv], but can of
-course also be used on its own.
+[hydrus server][hydrus-server] from source.
 
-The latest build runs [hydrus server version 342][hydrus-server-version].
+The latest build runs [hydrus server version 343][hydrus-server-version].
 
 ## Table of contents
 
@@ -35,7 +33,7 @@ By default, this will pull the latest build. To specify an image with a
 specific version of hydrus server, provide the version number as tag, e.g.:
 
 ```zsh
-user@local:~$ docker pull mserajnik/hydrus-server-docker:342
+user@local:~$ docker pull mserajnik/hydrus-server-docker:343
 ```
 
 See [here][docker-hub-tags] for all the available version numbers/tags.
@@ -154,14 +152,13 @@ You are welcome to help out!
 [MIT](LICENSE.md) © Michael Serajnik
 
 [hydrus-server]: http://hydrusnetwork.github.io/hydrus/
-[hydrusrv]: https://github.com/mserajnik/hydrusrv
-[hydrus-server-version]: https://github.com/hydrusnetwork/hydrus/releases/tag/v342
+[hydrus-server-version]: https://github.com/hydrusnetwork/hydrus/releases/tag/v343
 [docker-hub]: https://hub.docker.com/r/mserajnik/hydrus-server-docker/
 [docker-hub-tags]: https://hub.docker.com/r/mserajnik/hydrus-server-docker/tags/
 [docker]: https://www.docker.com/
 [semantic-versioning]: https://semver.org/
 
-[hydrus-server-badge]: https://img.shields.io/badge/hydrus%20server-version%20342-blue.svg
+[hydrus-server-badge]: https://img.shields.io/badge/hydrus%20server-version%20343-blue.svg
 
 [travis]: https://travis-ci.com/mserajnik/hydrus-server-docker
 [travis-badge]: https://travis-ci.com/mserajnik/hydrus-server-docker.svg

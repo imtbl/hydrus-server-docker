@@ -5,7 +5,7 @@
 This is a simple Alpine-based Docker setup for running
 [hydrus server][hydrus-server] from source.
 
-The latest build runs [hydrus server version 343][hydrus-server-version].
+The latest build runs [hydrus server version 344][hydrus-server-version].
 
 ## Table of contents
 
@@ -33,7 +33,7 @@ By default, this will pull the latest build. To specify an image with a
 specific version of hydrus server, provide the version number as tag, e.g.:
 
 ```zsh
-user@local:~$ docker pull mserajnik/hydrus-server-docker:343
+user@local:~$ docker pull mserajnik/hydrus-server-docker:344
 ```
 
 See [here][docker-hub-tags] for all the available version numbers/tags.
@@ -95,9 +95,10 @@ repositories. You will generally have two (one for tags and one for files), but
 if you add more, you will also need to expose additional ports.
 
 Per default, hydrus-server-docker stores its databases and media inside the
-`/data` directory. It is highly recommended to create a named volume and mount
-it to the same location if you wish to persist the data beyond the lifetime of
-the container and/or access it on the host:
+`/data` directory which is a mount point that is persisted as a volume. A new
+volume will be created every time a container is created, making it less ideal
+as a long-term solution. Instead, you should create a named volume yourself and
+mount that over it instead:
 
 ```zsh
 user@local:~$ docker volume create hydrus-server-data
@@ -109,6 +110,13 @@ example with all the options mentioned above:
 ```zsh
 user@local:~$ docker run -p 45870:45870 -p 45871:45871 -p 45872:45872 -v hydrus-server-data:/data -d mserajnik/hydrus-server-docker
 ```
+
+Specifying the same named volume every time a container is created gives each
+of these instances access to the same persisted data.
+
+Of course, using a bind mount instead of a named volume is also possible but
+for performance reasons only recommended if you need easy access to the data on
+the host machine.
 
 ### Additional configuration when building
 
@@ -152,13 +160,13 @@ You are welcome to help out!
 [MIT](LICENSE.md) © Michael Serajnik
 
 [hydrus-server]: http://hydrusnetwork.github.io/hydrus/
-[hydrus-server-version]: https://github.com/hydrusnetwork/hydrus/releases/tag/v343
+[hydrus-server-version]: https://github.com/hydrusnetwork/hydrus/releases/tag/v344
 [docker-hub]: https://hub.docker.com/r/mserajnik/hydrus-server-docker/
 [docker-hub-tags]: https://hub.docker.com/r/mserajnik/hydrus-server-docker/tags/
 [docker]: https://www.docker.com/
 [semantic-versioning]: https://semver.org/
 
-[hydrus-server-badge]: https://img.shields.io/badge/hydrus%20server-version%20343-blue.svg
+[hydrus-server-badge]: https://img.shields.io/badge/hydrus%20server-version%20344-blue.svg
 
 [travis]: https://travis-ci.com/mserajnik/hydrus-server-docker
 [travis-badge]: https://travis-ci.com/mserajnik/hydrus-server-docker.svg

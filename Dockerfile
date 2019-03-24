@@ -67,6 +67,8 @@ HEALTHCHECK --interval=1m --timeout=10s --retries=3 \
   CMD wget --quiet --tries=1 --no-check-certificate --spider \
     https://localhost:45870 || exit 1
 
+VOLUME /data
+
 USER hydrus
 
 ENTRYPOINT ["docker-entrypoint"]

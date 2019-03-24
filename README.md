@@ -95,9 +95,10 @@ repositories. You will generally have two (one for tags and one for files), but
 if you add more, you will also need to expose additional ports.
 
 Per default, hydrus-server-docker stores its databases and media inside the
-`/data` directory. It is highly recommended to create a named volume and mount
-it to the same location if you wish to persist the data beyond the lifetime of
-the container and/or access it on the host:
+`/data` directory which is a mount point that is persisted as a volume. A new
+volume will be created every time a container is created, making it less ideal
+as a long-term solution. Instead, you should create a named volume yourself and
+mount that over it instead:
 
 ```zsh
 user@local:~$ docker volume create hydrus-server-data
@@ -109,6 +110,13 @@ example with all the options mentioned above:
 ```zsh
 user@local:~$ docker run -p 45870:45870 -p 45871:45871 -p 45872:45872 -v hydrus-server-data:/data -d mserajnik/hydrus-server-docker
 ```
+
+Specifying the same named volume every time a container is created gives each
+of these instances access to the same persisted data.
+
+Of course, using a bind mount instead of a named volume is also possible but
+for performance reasons only recommended if you need easy access to the data on
+the host machine.
 
 ### Additional configuration when building
 

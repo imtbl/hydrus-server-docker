@@ -5,7 +5,7 @@
 This is a simple Alpine-based Docker setup for running
 [hydrus server][hydrus-server] from source.
 
-The latest build runs [hydrus server version 346][hydrus-server-version].
+The latest build runs [hydrus server version 347][hydrus-server-version].
 
 ## Table of contents
 
@@ -33,7 +33,7 @@ By default, this will pull the latest build. To specify an image with a
 specific version of hydrus server, provide the version number as tag, e.g.:
 
 ```zsh
-user@local:~$ docker pull mserajnik/hydrus-server-docker:346
+user@local:~$ docker pull mserajnik/hydrus-server-docker:347
 ```
 
 See [here][docker-hub-tags] for all the available version numbers/tags.
@@ -98,7 +98,7 @@ Per default, hydrus-server-docker stores its databases and media inside the
 `/data` directory which is a mount point that is persisted as a volume. A new
 volume will be created every time a container is created, making it less ideal
 as a long-term solution. Instead, you should create a named volume yourself and
-mount that over it instead:
+mount that over it:
 
 ```zsh
 user@local:~$ docker volume create hydrus-server-data
@@ -160,13 +160,13 @@ You are welcome to help out!
 [MIT](LICENSE.md) © Michael Serajnik
 
 [hydrus-server]: http://hydrusnetwork.github.io/hydrus/
-[hydrus-server-version]: https://github.com/hydrusnetwork/hydrus/releases/tag/v346
+[hydrus-server-version]: https://github.com/hydrusnetwork/hydrus/releases/tag/v347
 [docker-hub]: https://hub.docker.com/r/mserajnik/hydrus-server-docker/
 [docker-hub-tags]: https://hub.docker.com/r/mserajnik/hydrus-server-docker/tags/
 [docker]: https://www.docker.com/
 [semantic-versioning]: https://semver.org/
 
-[hydrus-server-badge]: https://img.shields.io/badge/hydrus%20server-version%20346-blue.svg
+[hydrus-server-badge]: https://img.shields.io/badge/hydrus%20server-version%20347-blue.svg
 
 [travis]: https://travis-ci.com/mserajnik/hydrus-server-docker
 [travis-badge]: https://travis-ci.com/mserajnik/hydrus-server-docker.svg

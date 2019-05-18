@@ -1,4 +1,4 @@
-FROM python:3.7-alpine
+FROM python:3.7-slim-stretch
 
 ARG HOST_USER_ID=1000
 ARG HOST_GROUP_ID=1000
@@ -8,15 +8,16 @@ ENV HOST_GROUP_ID=$HOST_GROUP_ID
 
 RUN \
   if [ $(getent group ${HOST_GROUP_ID}) ]; then \
-    adduser -D -u ${HOST_USER_ID} hydrus; \
+    useradd -r -u ${HOST_USER_ID} hydrus; \
   else \
-    addgroup -g ${HOST_GROUP_ID} hydrus && \
-    adduser -D -u ${HOST_USER_ID} -G hydrus hydrus; \
+    groupadd -g ${HOST_GROUP_ID} hydrus && \
+    useradd -r -u ${HOST_USER_ID} -g hydrus hydrus; \
   fi
 
 WORKDIR /usr/src/app
 
 COPY ./hydrus .
+COPY ./deb .
 
 RUN \
   chown -R hydrus:hydrus /usr/src/app && \
@@ -28,18 +29,15 @@ RUN \
     bin/upnpc_osx \
     bin/upnpc_win32.exe && \
   mkdir /data && chown -R hydrus:hydrus /data && \
-  apk --no-cache add \
-    build-base \
+  apt-get update && apt-get install -y \
+    build-essential \
     ffmpeg \
-    jpeg-dev \
-    libffi-dev \
-    linux-headers \
-    openssl \
-    openssl-dev \
-    zlib-dev && \
+    wget && \
+  dpkg -i libjpeg8_8d-1+deb7u1_amd64.deb && \
+  rm libjpeg8_8d-1+deb7u1_amd64.deb && \
   pip install virtualenv && \
   virtualenv venv && \
-  source venv/bin/activate && \
+  . venv/bin/activate && \
   pip install \
     beautifulsoup4~=4.7.1 \
     lz4~=2.1.6 \
@@ -49,12 +47,14 @@ RUN \
     pylzma~=0.5.0 \
     pyopenssl~=18.0.0 \
     pyyaml~=3.13 \
+    opencv-python-headless~=4.1.0.25 \
     requests~=2.21.0 \
     send2trash~=1.5.0 \
     service_identity~=18.1.0 \
     twisted~=18.9.0 && \
   rm -r ~/.cache && \
-  apk del build-base jpeg-dev libffi-dev linux-headers openssl-dev zlib-dev
+  apt-get clean && apt-get autoclean && apt-get autoremove --purge -y && \
+  rm -rf /var/lib/apt/lists/*
 
 COPY docker-entrypoint.sh /usr/local/bin/docker-entrypoint
 RUN chmod +x /usr/local/bin/docker-entrypoint

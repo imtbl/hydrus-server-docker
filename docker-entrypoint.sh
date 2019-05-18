@@ -1,6 +1,6 @@
-#!/bin/sh
+#!/bin/bash
 
-source venv/bin/activate
+. venv/bin/activate
 
 stop() {
   ./server.py stop -d="/data"

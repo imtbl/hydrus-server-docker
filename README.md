@@ -1,8 +1,8 @@
 # hydrus-server-docker [![hydrus server version][hydrus-server-badge]][hydrus-server-version] [![Build status][travis-badge]][travis] [![Docker Hub build][docker-hub-badge]][docker-hub]
 
-> [hydrus server][hydrus-server] running on Alpine
+> [hydrus server][hydrus-server] running on Debian
 
-This is a simple Alpine-based Docker setup for running
+This is a simple Debian-based Docker setup for running
 [hydrus server][hydrus-server] from source.
 
 The latest build runs [hydrus server version 351][hydrus-server-version].

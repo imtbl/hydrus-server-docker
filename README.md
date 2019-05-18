@@ -12,6 +12,7 @@ The latest build runs [hydrus server version 351][hydrus-server-version].
 + [Install](#install)
   + [Dependencies](#dependencies)
   + [Updating](#updating)
+    + [Upgrading from 2.x to 3.x](#upgrading-from-2x-to-3x)
     + [Upgrading from 1.x to 2.x](#upgrading-from-1x-to-2x)
 + [Usage](#usage)
   + [Additional configuration when building](#additional-configuration-when-building)
@@ -62,6 +63,14 @@ are therefore always safe to simply install via the routine mentioned before.
 
 When necessary, this section will be expanded with upgrade guides to new major
 versions.
+
+#### Upgrading from 2.x to 3.x
+
+Upgrading from `2.x` to `3.x` can be done via pulling the updated image from
+Docker Hub or building it yourself and requires no further manual changes.
+
+Due to the introduction of OpenCV to hydrus server (which is hard to build on
+Alpine), the Docker image is now based on Debian instead of Alpine instead.
 
 #### Upgrading from 1.x to 2.x
 

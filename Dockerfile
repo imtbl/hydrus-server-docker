@@ -40,7 +40,7 @@ RUN \
   . venv/bin/activate && \
   pip install \
     beautifulsoup4~=4.7.1 \
-    lz4~=2.1.6 \
+    lz4~=2.1.10 \
     numpy~=1.16.4 \
     pillow~=5.4.1 \
     psutil~=5.4.8 \

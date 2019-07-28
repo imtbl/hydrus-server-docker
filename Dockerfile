@@ -1,4 +1,4 @@
-FROM python:3.7-slim-stretch
+FROM python:3.7-slim-buster
 
 ARG HOST_USER_ID=1000
 ARG HOST_GROUP_ID=1000
@@ -21,37 +21,43 @@ COPY ./deb .
 
 RUN \
   chown -R hydrus:hydrus /usr/src/app && \
-  chmod +x server.py && \
-  chmod +x bin/swfrender_linux bin/upnpc_linux && \
+  chmod +x \
+    server.py \
+    bin/swfrender_linux \
+    bin/upnpc_linux && \
   rm \
     bin/swfrender_osx \
     bin/swfrender_win32.exe \
     bin/upnpc_osx \
     bin/upnpc_win32.exe && \
-  mkdir /data && chown -R hydrus:hydrus /data && \
+  mkdir /data && \
+  chown -R hydrus:hydrus /data && \
   apt-get update && apt-get install -y \
     build-essential \
     ffmpeg \
+    multiarch-support \
     wget && \
-  dpkg -i libjpeg8_8d-1+deb7u1_amd64.deb && \
-  rm libjpeg8_8d-1+deb7u1_amd64.deb && \
+  dpkg -i libjpeg8_8d-2_amd64.deb && \
+  rm libjpeg8_8d-2_amd64.deb && \
+  pip install --upgrade pip && \
   pip install virtualenv && \
   virtualenv venv && \
   . venv/bin/activate && \
   pip install \
-    beautifulsoup4~=4.7.1 \
+    beautifulsoup4~=4.8.0 \
+    chardet~=3.0.4 \
     lz4~=2.1.10 \
-    numpy~=1.16.4 \
-    pillow~=5.4.1 \
-    psutil~=5.4.8 \
+    numpy~=1.17.0 \
+    pillow~=6.1.0 \
+    psutil~=5.6.3 \
     pylzma~=0.5.0 \
-    pyopenssl~=18.0.0 \
-    pyyaml~=3.13 \
+    pyopenssl~=19.0.0 \
+    pyyaml~=5.1.1 \
     opencv-python-headless~=4.1.0.25 \
-    requests~=2.21.0 \
+    requests~=2.22.0 \
     send2trash~=1.5.0 \
     service_identity~=18.1.0 \
-    twisted~=18.9.0 && \
+    twisted~=19.2.1 && \
   rm -r ~/.cache && \
   apt-get clean && apt-get autoclean && apt-get autoremove --purge -y && \
   rm -rf /var/lib/apt/lists/*

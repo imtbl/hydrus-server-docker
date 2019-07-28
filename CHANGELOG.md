@@ -10,6 +10,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ### Changed
 
 + Updated hydrus server version
++ Updated base image to Debian Buster
 
 ## [3.6.0] - 2019-07-05
 

@@ -5,7 +5,7 @@
 This is a simple Debian-based Docker setup for running
 [hydrus server][hydrus-server] from source.
 
-The latest build runs [hydrus server version 360][hydrus-server-version].
+The latest build runs [hydrus server version 362][hydrus-server-version].
 
 ## Table of contents
 
@@ -34,7 +34,7 @@ By default, this will pull the latest build. To specify an image with a
 specific version of hydrus server, provide the version number as tag, e.g.:
 
 ```zsh
-user@local:~$ docker pull mserajnik/hydrus-server-docker:360
+user@local:~$ docker pull mserajnik/hydrus-server-docker:362
 ```
 
 See [here][docker-hub-tags] for all the available version numbers/tags.
@@ -169,13 +169,13 @@ You are welcome to help out!
 [MIT](LICENSE.md) © Michael Serajnik
 
 [hydrus-server]: http://hydrusnetwork.github.io/hydrus/
-[hydrus-server-version]: https://github.com/hydrusnetwork/hydrus/releases/tag/v360
+[hydrus-server-version]: https://github.com/hydrusnetwork/hydrus/releases/tag/v362
 [docker-hub]: https://hub.docker.com/r/mserajnik/hydrus-server-docker/
 [docker-hub-tags]: https://hub.docker.com/r/mserajnik/hydrus-server-docker/tags/
 [docker]: https://www.docker.com/
 [semantic-versioning]: https://semver.org/
 
-[hydrus-server-badge]: https://img.shields.io/badge/hydrus%20server-version%20360-blue.svg
+[hydrus-server-badge]: https://img.shields.io/badge/hydrus%20server-version%20362-blue.svg
 
 [travis]: https://travis-ci.com/mserajnik/hydrus-server-docker
 [travis-badge]: https://travis-ci.com/mserajnik/hydrus-server-docker.svg

@@ -48,12 +48,12 @@ RUN \
     chardet~=3.0.4 \
     lz4~=2.1.10 \
     numpy~=1.17.0 \
+    opencv-python-headless~=4.1.0.25 \
     pillow~=6.1.0 \
     psutil~=5.6.3 \
     pylzma~=0.5.0 \
     pyopenssl~=19.0.0 \
-    pyyaml~=5.1.1 \
-    opencv-python-headless~=4.1.0.25 \
+    pyyaml~=5.1.2 \
     requests~=2.22.0 \
     send2trash~=1.5.0 \
     service_identity~=18.1.0 \

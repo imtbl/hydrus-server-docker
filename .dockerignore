@@ -1,1 +1,11 @@
-.git
+**/.git
+**/*.md
+**/*.sql
+**/*.txt
+**/COPYING
+/hydrus/bin/swfrender_osx
+/hydrus/bin/swfrender_win32.exe
+/hydrus/bin/upnpc_osx
+/hydrus/bin/upnpc_win32.exe
+/hydrus/db
+/hydrus/help

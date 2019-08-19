@@ -25,14 +25,9 @@ RUN \
     server.py \
     bin/swfrender_linux \
     bin/upnpc_linux && \
-  rm \
-    bin/swfrender_osx \
-    bin/swfrender_win32.exe \
-    bin/upnpc_osx \
-    bin/upnpc_win32.exe && \
   mkdir /data && \
   chown -R hydrus:hydrus /data && \
-  apt-get update && apt-get install -y \
+  apt-get update && apt-get install --no-install-recommends -y \
     build-essential \
     ffmpeg \
     multiarch-support \
@@ -59,15 +54,14 @@ RUN \
     service_identity~=18.1.0 \
     twisted~=19.2.1 && \
   rm -r ~/.cache && \
-  apt-get clean && apt-get autoclean && apt-get autoremove --purge -y && \
+  apt-get remove build-essential --purge -y && \
+  apt-get clean && apt-get autoremove --purge -y && \
   rm -rf /var/lib/apt/lists/*
 
 COPY docker-entrypoint.sh /usr/local/bin/docker-entrypoint
 RUN chmod +x /usr/local/bin/docker-entrypoint
 
-EXPOSE 45870/tcp
-EXPOSE 45871/tcp
-EXPOSE 45872/tcp
+EXPOSE 45870/tcp 45871/tcp 45872/tcp
 
 HEALTHCHECK --interval=1m --timeout=10s --retries=3 \
   CMD wget --quiet --tries=1 --no-check-certificate --spider \

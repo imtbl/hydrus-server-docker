@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+### Changed
+
++ Decreased Docker image size
+
 ## [3.9.0] - 2019-08-08
 
 ### Changed

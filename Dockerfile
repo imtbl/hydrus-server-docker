@@ -52,7 +52,7 @@ RUN \
     requests~=2.22.0 \
     send2trash~=1.5.0 \
     service_identity~=18.1.0 \
-    twisted~=19.2.1 && \
+    twisted~=19.7.0 && \
   rm -r ~/.cache && \
   apt-get remove build-essential --purge -y && \
   apt-get clean && apt-get autoremove --purge -y && \

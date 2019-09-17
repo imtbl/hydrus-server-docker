@@ -41,8 +41,8 @@ RUN \
   pip install \
     beautifulsoup4~=4.8.0 \
     chardet~=3.0.4 \
-    lz4~=2.1.10 \
-    numpy~=1.17.1 \
+    lz4~=2.2.1 \
+    numpy~=1.17.2 \
     opencv-python-headless~=4.1.1.26 \
     pillow~=6.1.0 \
     psutil~=5.6.3 \

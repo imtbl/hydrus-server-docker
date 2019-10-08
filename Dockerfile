@@ -39,12 +39,12 @@ RUN \
   virtualenv venv && \
   . venv/bin/activate && \
   pip install \
-    beautifulsoup4~=4.8.0 \
+    beautifulsoup4~=4.8.1 \
     chardet~=3.0.4 \
     lz4~=2.2.1 \
     numpy~=1.17.2 \
     opencv-python-headless~=4.1.1.26 \
-    pillow~=6.1.0 \
+    pillow~=6.2.0 \
     psutil~=5.6.3 \
     pylzma~=0.5.0 \
     pyopenssl~=19.0.0 \

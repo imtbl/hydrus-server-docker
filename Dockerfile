@@ -42,17 +42,17 @@ RUN \
     beautifulsoup4~=4.8.1 \
     chardet~=3.0.4 \
     lz4~=2.2.1 \
-    numpy~=1.17.2 \
+    numpy~=1.17.4 \
     opencv-python-headless~=4.1.1.26 \
-    pillow~=6.2.0 \
-    psutil~=5.6.3 \
+    pillow~=6.2.1 \
+    psutil~=5.6.5 \
     pylzma~=0.5.0 \
     pyopenssl~=19.0.0 \
     pyyaml~=5.1.2 \
     requests~=2.22.0 \
     send2trash~=1.5.0 \
     service_identity~=18.1.0 \
-    twisted~=19.7.0 && \
+    twisted~=19.10.0 && \
   rm -r ~/.cache && \
   apt-get remove build-essential --purge -y && \
   apt-get clean && apt-get autoremove --purge -y && \

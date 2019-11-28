@@ -10,6 +10,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ### Changed
 
 + Updated hydrus server version
++ Updated Python to version 3.8
 
 ## [3.18.0] - 2019-11-14
 

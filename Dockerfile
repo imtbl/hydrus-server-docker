@@ -1,4 +1,4 @@
-FROM python:3.7-slim-buster
+FROM python:3.8-slim-buster
 
 ARG HOST_USER_ID=1000
 ARG HOST_GROUP_ID=1000
@@ -43,11 +43,11 @@ RUN \
     chardet~=3.0.4 \
     lz4~=2.2.1 \
     numpy~=1.17.4 \
-    opencv-python-headless~=4.1.1.26 \
+    opencv-python-headless~=4.1.2.30 \
     pillow~=6.2.1 \
-    psutil~=5.6.5 \
+    psutil~=5.6.7 \
     pylzma~=0.5.0 \
-    pyopenssl~=19.0.0 \
+    pyopenssl~=19.1.0 \
     pyyaml~=5.1.2 \
     requests~=2.22.0 \
     send2trash~=1.5.0 \

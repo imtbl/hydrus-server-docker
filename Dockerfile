@@ -48,7 +48,7 @@ RUN \
     psutil~=5.6.7 \
     pylzma~=0.5.0 \
     pyopenssl~=19.1.0 \
-    pyyaml~=5.1.2 \
+    pyyaml~=5.2 \
     requests~=2.22.0 \
     send2trash~=1.5.0 \
     service_identity~=18.1.0 \

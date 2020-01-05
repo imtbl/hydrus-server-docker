@@ -7,6 +7,11 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+### Added
+
++ Added the ability to define custom UID and GID for the Docker container at
+  container creation
+
 ## [3.21.0] - 2020-01-02
 
 ### Changed

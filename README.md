@@ -15,8 +15,9 @@ The latest build runs [hydrus server version 379][hydrus-server-version].
     + [Upgrading from 2.x to 3.x](#upgrading-from-2x-to-3x)
     + [Upgrading from 1.x to 2.x](#upgrading-from-1x-to-2x)
 + [Usage](#usage)
-  + [Additional configuration when building](#additional-configuration-when-building)
-    + [UID/GID](#uidgid)
+  + [Ports](#ports)
+  + [Storage](#storage)
+  + [UID/GID](#uidgid)
 + [Donate](#donate)
 + [Maintainer](#maintainer)
 + [Contribute](#contribute)
@@ -87,6 +88,8 @@ making it easier to adapt for future changes/dependencies.
 
 ## Usage
 
+### Ports
+
 First, you need to bind the exposed ports. This can be done automatically
 using `-P` but it is recommended to bind them manually instead since having
 changing ports every time you run a new container might be annoying when used
@@ -103,6 +106,8 @@ for the server administration service while `45871` and `45872` are used for
 repositories. You will generally have two (one for tags and one for files), but
 if you add more, you will also need to expose additional ports.
 
+### Storage
+
 Per default, hydrus-server-docker stores its databases and media inside the
 `/data` directory which is a mount point that is persisted as a volume. A new
 volume will be created every time a container is created, making it less ideal
@@ -113,11 +118,22 @@ mount that over it:
 user@local:~$ docker volume create hydrus-server-data
 ```
 
-After creating your named volume, you can run the container. Here is a full
-example with all the options mentioned above:
+### UID/GID
+
+The user that owns the data and runs the server inside the container has the
+UID `1000` and the GID `1000` by default. You can change these by providing the
+environment variables `CUSTOM_UID` and `CUSTOM_GID` when creating a container.
+
+This is useful if you want to access the data outside the container with a user
+with different IDs without hassle. In such a case, `CUSTOM_UID` and
+`CUSTOM_GID` should match the user that is going to access the data on the
+host.
+
+Here is a full example for running the container with all the options mentioned
+above:
 
 ```zsh
-user@local:~$ docker run -p 45870:45870 -p 45871:45871 -p 45872:45872 -v hydrus-server-data:/data -d mserajnik/hydrus-server-docker
+user@local:~$ docker run -p 45870:45870 -p 45871:45871 -p 45872:45872 -v hydrus-server-data:/data -e CUSTOM_UID=1000 -e CUSTOM_GID=1000 -d mserajnik/hydrus-server-docker
 ```
 
 Specifying the same named volume every time a container is created gives each
@@ -126,19 +142,6 @@ of these instances access to the same persisted data.
 Of course, using a bind mount instead of a named volume is also possible but
 for performance reasons only recommended if you need easy access to the data on
 the host machine.
-
-### Additional configuration when building
-
-#### UID/GID
-
-By default, the user that owns the data and runs the server inside the
-container has the UID `1000` and the GID `1000`. You can make a build providing
-the arguments `HOST_USER_ID` and `HOST_GROUP_ID` to change these defaults.
-
-This is useful if you want to access the data outside the container with a user
-with different ID's without hassle. In such a case, `HOST_USER_ID` and
-`HOST_GROUP_ID` should match the user that is going to access the data on the
-host.
 
 ## Donate
 

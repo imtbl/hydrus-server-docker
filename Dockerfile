@@ -1,35 +1,20 @@
 FROM python:3.8-slim-buster
 
-ARG HOST_USER_ID=1000
-ARG HOST_GROUP_ID=1000
-
-ENV HOST_USER_ID=$HOST_USER_ID
-ENV HOST_GROUP_ID=$HOST_GROUP_ID
-
-RUN \
-  if [ $(getent group ${HOST_GROUP_ID}) ]; then \
-    useradd -r -u ${HOST_USER_ID} hydrus; \
-  else \
-    groupadd -g ${HOST_GROUP_ID} hydrus && \
-    useradd -r -u ${HOST_USER_ID} -g hydrus hydrus; \
-  fi
-
 WORKDIR /usr/src/app
 
 COPY ./hydrus .
 COPY ./deb .
 
 RUN \
-  chown -R hydrus:hydrus /usr/src/app && \
   chmod +x \
     server.py \
     bin/swfrender_linux \
     bin/upnpc_linux && \
   mkdir /data && \
-  chown -R hydrus:hydrus /data && \
   apt-get update && apt-get install --no-install-recommends -y \
     build-essential \
     ffmpeg \
+    gosu \
     multiarch-support \
     wget && \
   dpkg -i libjpeg8_8d-2_amd64.deb && \
@@ -59,7 +44,10 @@ RUN \
   rm -rf /var/lib/apt/lists/*
 
 COPY docker-entrypoint.sh /usr/local/bin/docker-entrypoint
-RUN chmod +x /usr/local/bin/docker-entrypoint
+COPY docker-start.sh /usr/local/bin/docker-start
+RUN \
+  chmod +x /usr/local/bin/docker-entrypoint && \
+  chmod +x /usr/local/bin/docker-start
 
 EXPOSE 45870/tcp 45871/tcp 45872/tcp
 
@@ -69,6 +57,5 @@ HEALTHCHECK --interval=1m --timeout=10s --retries=3 \
 
 VOLUME /data
 
-USER hydrus
-
 ENTRYPOINT ["docker-entrypoint"]
+CMD ["docker-start"]

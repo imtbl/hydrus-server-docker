@@ -1,13 +1,10 @@
 #!/bin/bash
 
-. venv/bin/activate
+USER_ID=${CUSTOM_UID:-1000}
+GROUP_ID=${CUSTOM_GID:-1000}
 
-stop() {
-  ./server.py stop -d="/data"
-}
+echo "Setting permissions to UID/GID ${USER_ID}/${GROUP_ID}."
+chown ${USER_ID}:${GROUP_ID} -R /usr/src/app
+chown ${USER_ID}:${GROUP_ID} -R /data
 
-trap "stop" SIGTERM
-
-./server.py -d="/data" &
-
-wait $!
+exec gosu ${USER_ID}:${GROUP_ID} "$@"

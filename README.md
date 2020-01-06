@@ -17,7 +17,6 @@ The latest build runs [hydrus server version 379][hydrus-server-version].
 + [Usage](#usage)
   + [Ports](#ports)
   + [Storage](#storage)
-  + [UID/GID](#uidgid)
 + [Donate](#donate)
 + [Maintainer](#maintainer)
 + [Contribute](#contribute)
@@ -38,15 +37,17 @@ specific version of hydrus server, provide the version number as tag, e.g.:
 user@local:~$ docker pull mserajnik/hydrus-server-docker:379
 ```
 
-See [here][docker-hub-tags] for all the available version numbers/tags.
-
-Alternatively, you can clone this repository and build the image yourself:
+Alternatively, you can also build the image yourself:
 
 ```zsh
 user@local:~$ git clone --recurse-submodules https://github.com/mserajnik/hydrus-server-docker.git
 user@local:~$ cd hydrus-server-docker
 user@local:hydrus-server-docker$ docker build . -t hydrus-server-docker
 ```
+
+The user that is used inside the container has UID `1000` and GID `1000` by
+default. You can adjust this (e.g., to match your host UID/GID) by providing
+the arguments `USER_ID` and `GROUP_ID` when making a build.
 
 ### Dependencies
 
@@ -118,22 +119,11 @@ mount that over it:
 user@local:~$ docker volume create hydrus-server-data
 ```
 
-### UID/GID
-
-The user that owns the data and runs the server inside the container has the
-UID `1000` and the GID `1000` by default. You can change these by providing the
-environment variables `CUSTOM_UID` and `CUSTOM_GID` when creating a container.
-
-This is useful if you want to access the data outside the container with a user
-with different IDs without hassle. In such a case, `CUSTOM_UID` and
-`CUSTOM_GID` should match the user that is going to access the data on the
-host.
-
-Here is a full example for running the container with all the options mentioned
-above:
+After creating your named volume, you can run the container. Here is a full
+example with all the options mentioned above:
 
 ```zsh
-user@local:~$ docker run -p 45870:45870 -p 45871:45871 -p 45872:45872 -v hydrus-server-data:/data -e CUSTOM_UID=1000 -e CUSTOM_GID=1000 -d mserajnik/hydrus-server-docker
+user@local:~$ docker run -p 45870:45870 -p 45871:45871 -p 45872:45872 -v hydrus-server-data:/data -d mserajnik/hydrus-server-docker
 ```
 
 Specifying the same named volume every time a container is created gives each

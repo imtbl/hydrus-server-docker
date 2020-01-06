@@ -1,16 +1,18 @@
 FROM python:3.8-slim-buster
 
+ARG USER_ID=1000
+ARG GROUP_ID=1000
+
+ENV \
+  USER_ID=$USER_ID \
+  GROUP_ID=$GROUP_ID
+
 WORKDIR /usr/src/app
 
 COPY ./hydrus .
 COPY ./deb .
 
 RUN \
-  chmod +x \
-    server.py \
-    bin/swfrender_linux \
-    bin/upnpc_linux && \
-  mkdir /data && \
   apt-get update && apt-get install --no-install-recommends -y \
     build-essential \
     ffmpeg \
@@ -41,13 +43,16 @@ RUN \
   rm -r ~/.cache && \
   apt-get remove build-essential --purge -y && \
   apt-get clean && apt-get autoremove --purge -y && \
-  rm -rf /var/lib/apt/lists/*
+  rm -rf /var/lib/apt/lists/* && \
+  chown -R ${USER_ID}:${GROUP_ID} /usr/src/app && \
+  chmod +x \
+    server.py \
+    bin/swfrender_linux \
+    bin/upnpc_linux && \
+  mkdir /data && chown -R ${USER_ID}:${GROUP_ID} /data
 
-COPY docker-entrypoint.sh /usr/local/bin/docker-entrypoint
-COPY docker-start.sh /usr/local/bin/docker-start
-RUN \
-  chmod +x /usr/local/bin/docker-entrypoint && \
-  chmod +x /usr/local/bin/docker-start
+COPY docker-cmd-start.sh /usr/local/bin/start
+RUN chmod +x /usr/local/bin/start
 
 EXPOSE 45870/tcp 45871/tcp 45872/tcp
 
@@ -57,5 +62,6 @@ HEALTHCHECK --interval=1m --timeout=10s --retries=3 \
 
 VOLUME /data
 
-ENTRYPOINT ["docker-entrypoint"]
-CMD ["docker-start"]
+USER ${USER_ID}:${GROUP_ID}
+
+CMD ["start"]

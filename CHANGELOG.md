@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [3.23.1] - 2020-01-12
+
 ### Fixed
 
 + Removed unnecessary `gosu` package from Docker image builds
@@ -326,7 +328,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 + Initial release
 
-[Unreleased]: https://github.com/mserajnik/hydrus-server-docker/compare/3.23.0...develop
+[Unreleased]: https://github.com/mserajnik/hydrus-server-docker/compare/3.23.1...develop
+[3.23.1]: https://github.com/mserajnik/hydrus-server-docker/compare/3.23.0...3.23.1
 [3.23.0]: https://github.com/mserajnik/hydrus-server-docker/compare/3.22.0...3.23.0
 [3.22.0]: https://github.com/mserajnik/hydrus-server-docker/compare/3.21.0...3.22.0
 [3.21.0]: https://github.com/mserajnik/hydrus-server-docker/compare/3.20.0...3.21.0

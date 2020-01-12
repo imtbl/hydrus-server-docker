@@ -7,6 +7,13 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [3.23.0] - 2020-01-12
+
+### Removed
+
++ Removed the ability to define custom UID and GID for the Docker container at
+  container creation due to several issues arising from that
+
 ## [3.22.0] - 2020-01-05
 
 ### Added
@@ -315,7 +322,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 + Initial release
 
-[Unreleased]: https://github.com/mserajnik/hydrus-server-docker/compare/3.22.0...develop
+[Unreleased]: https://github.com/mserajnik/hydrus-server-docker/compare/3.23.0...develop
+[3.23.0]: https://github.com/mserajnik/hydrus-server-docker/compare/3.22.0...3.23.0
 [3.22.0]: https://github.com/mserajnik/hydrus-server-docker/compare/3.21.0...3.22.0
 [3.21.0]: https://github.com/mserajnik/hydrus-server-docker/compare/3.20.0...3.21.0
 [3.20.0]: https://github.com/mserajnik/hydrus-server-docker/compare/3.19.0...3.20.0

@@ -16,7 +16,6 @@ RUN \
   apt-get update && apt-get install --no-install-recommends -y \
     build-essential \
     ffmpeg \
-    gosu \
     multiarch-support \
     wget && \
   dpkg -i libjpeg8_8d-2_amd64.deb && \

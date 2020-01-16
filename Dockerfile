@@ -28,13 +28,13 @@ RUN \
     beautifulsoup4~=4.8.2 \
     chardet~=3.0.4 \
     lz4~=3.0.2 \
-    numpy~=1.18.0 \
+    numpy~=1.18.1 \
     opencv-python-headless~=4.1.2.30 \
-    pillow~=6.2.1 \
+    pillow~=7.0.0 \
     psutil~=5.6.7 \
     pylzma~=0.5.0 \
     pyopenssl~=19.1.0 \
-    pyyaml~=5.2 \
+    pyyaml~=5.3 \
     requests~=2.22.0 \
     send2trash~=1.5.0 \
     service_identity~=18.1.0 \

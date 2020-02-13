@@ -29,7 +29,7 @@ RUN \
     chardet~=3.0.4 \
     lz4~=3.0.2 \
     numpy~=1.18.1 \
-    opencv-python-headless~=4.1.2.30 \
+    opencv-python-headless~=4.2.0.32 \
     pillow~=7.0.0 \
     psutil~=5.6.7 \
     pylzma~=0.5.0 \

@@ -7,6 +7,12 @@ This is a simple Debian-based Docker setup for running
 
 The latest build runs [hydrus server version 388][hydrus-server-version].
 
+Due to time constraints and the fact that changes to hydrus server are
+infrequent, a new release of this Docker setup is only made every fourth hydrus
+release (e.g., `388`, `392`, `396` etc.). This comes out to roughly one release
+per month. Exceptions may be made in particular instances that warrant a
+release outside of this schedule (e.g., important changes to hydrus server).
+
 ## Table of contents
 
 + [Install](#install)

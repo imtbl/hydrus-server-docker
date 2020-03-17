@@ -5,7 +5,13 @@
 This is a simple Debian-based Docker setup for running
 [hydrus server][hydrus-server] from source.
 
-The latest build runs [hydrus server version 384][hydrus-server-version].
+The latest build runs [hydrus server version 388][hydrus-server-version].
+
+Due to time constraints and the fact that changes to hydrus server are
+infrequent, a new release of this Docker setup is only made every fourth hydrus
+release (e.g., `388`, `392`, `396` etc.). This comes out to roughly one release
+per month. Exceptions may be made in particular instances that warrant a
+release outside of this schedule (e.g., important changes to hydrus server).
 
 ## Table of contents
 
@@ -34,7 +40,7 @@ By default, this will pull the latest build. To specify an image with a
 specific version of hydrus server, provide the version number as tag, e.g.:
 
 ```zsh
-user@local:~$ docker pull mserajnik/hydrus-server-docker:384
+user@local:~$ docker pull mserajnik/hydrus-server-docker:388
 ```
 
 Alternatively, you can also build the image yourself:
@@ -162,13 +168,13 @@ You are welcome to help out!
 [MIT](LICENSE.md) © Michael Serajnik
 
 [hydrus-server]: http://hydrusnetwork.github.io/hydrus/
-[hydrus-server-version]: https://github.com/hydrusnetwork/hydrus/releases/tag/v384
+[hydrus-server-version]: https://github.com/hydrusnetwork/hydrus/releases/tag/v388
 [docker-hub]: https://hub.docker.com/r/mserajnik/hydrus-server-docker/
 [docker-hub-tags]: https://hub.docker.com/r/mserajnik/hydrus-server-docker/tags/
 [docker]: https://www.docker.com/
 [semantic-versioning]: https://semver.org/
 
-[hydrus-server-badge]: https://img.shields.io/badge/hydrus%20server-version%20384-blue.svg
+[hydrus-server-badge]: https://img.shields.io/badge/hydrus%20server-version%20388-blue.svg
 
 [travis]: https://travis-ci.com/mserajnik/hydrus-server-docker
 [travis-badge]: https://travis-ci.com/mserajnik/hydrus-server-docker.svg

@@ -25,20 +25,20 @@ RUN \
   virtualenv venv && \
   . venv/bin/activate && \
   pip install \
-    beautifulsoup4~=4.8.2 \
+    beautifulsoup4~=4.9.0 \
     chardet~=3.0.4 \
     lz4~=3.0.2 \
     numpy~=1.18.2 \
-    opencv-python-headless~=4.2.0.32 \
-    pillow~=7.0.0 \
+    opencv-python-headless~=4.2.0.34 \
+    pillow~=7.1.1 \
     psutil~=5.7.0 \
     pylzma~=0.5.0 \
     pyopenssl~=19.1.0 \
-    pyyaml~=5.3 \
+    pyyaml~=5.3.1 \
     requests~=2.23.0 \
     send2trash~=1.5.0 \
     service_identity~=18.1.0 \
-    twisted~=19.10.0 && \
+    twisted~=20.3.0 && \
   rm -r ~/.cache && \
   apt-get remove build-essential --purge -y && \
   apt-get clean && apt-get autoremove --purge -y && \

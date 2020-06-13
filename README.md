@@ -5,7 +5,7 @@
 This is a simple Debian-based Docker setup for running
 [hydrus server][hydrus-server] from source.
 
-The latest build runs [hydrus server version 393][hydrus-server-version].
+The latest build runs [hydrus server version 400][hydrus-server-version].
 
 Due to time constraints and the fact that changes to hydrus server are
 infrequent, a new release of this Docker setup is only made roughly
@@ -23,7 +23,6 @@ of this schedule (e.g., important changes to hydrus server).
 + [Usage](#usage)
   + [Ports](#ports)
   + [Storage](#storage)
-+ [Donate](#donate)
 + [Maintainer](#maintainer)
 + [Contribute](#contribute)
 + [License](#license)
@@ -33,20 +32,20 @@ of this schedule (e.g., important changes to hydrus server).
 The easiest way to install is via [Docker Hub][docker-hub]:
 
 ```zsh
-user@local:~$ docker pull mserajnik/hydrus-server-docker
+user@local:~$ docker pull mtbl/hydrus-server-docker
 ```
 
 By default, this will pull the latest build. To specify an image with a
 specific version of hydrus server, provide the version number as tag, e.g.:
 
 ```zsh
-user@local:~$ docker pull mserajnik/hydrus-server-docker:393
+user@local:~$ docker pull mtbl/hydrus-server-docker:400
 ```
 
 Alternatively, you can also build the image yourself:
 
 ```zsh
-user@local:~$ git clone --recurse-submodules https://github.com/mserajnik/hydrus-server-docker.git
+user@local:~$ git clone --recurse-submodules https://github.com/imtbl/hydrus-server-docker.git
 user@local:~$ cd hydrus-server-docker
 user@local:hydrus-server-docker$ docker build . -t hydrus-server-docker
 ```
@@ -129,7 +128,7 @@ After creating your named volume, you can run the container. Here is a full
 example with all the options mentioned above:
 
 ```zsh
-user@local:~$ docker run -p 45870:45870 -p 45871:45871 -p 45872:45872 -v hydrus-server-data:/data -d mserajnik/hydrus-server-docker
+user@local:~$ docker run -p 45870:45870 -p 45871:45871 -p 45872:45872 -v hydrus-server-data:/data -d mtbl/hydrus-server-docker
 ```
 
 Specifying the same named volume every time a container is created gives each
@@ -139,23 +138,9 @@ Of course, using a bind mount instead of a named volume is also possible but
 for performance reasons only recommended if you need easy access to the data on
 the host machine.
 
-## Donate
-
-If you like hydrus-server-docker and want to buy me a coffee, feel free to
-donate via PayPal:
-
-[![Donate via PayPal][paypal-image]][paypal]
-
-Alternatively, you can also send me BTC:
-
-![Donate BTC][btc-image]  
-`13jRyroNn8QF4mbGZxKS6mR3PsxjYTsGsu`
-
-Donations are unnecessary, but very much appreciated. :)
-
 ## Maintainer
 
-[mserajnik][maintainer]
+[imtbl][maintainer]
 
 ## Contribute
 
@@ -165,25 +150,21 @@ You are welcome to help out!
 
 ## License
 
-[MIT](LICENSE.md) © Michael Serajnik
+[MIT](LICENSE.md) © imtbl
 
 [hydrus-server]: http://hydrusnetwork.github.io/hydrus/
-[hydrus-server-version]: https://github.com/hydrusnetwork/hydrus/releases/tag/v393
-[docker-hub]: https://hub.docker.com/r/mserajnik/hydrus-server-docker/
-[docker-hub-tags]: https://hub.docker.com/r/mserajnik/hydrus-server-docker/tags/
+[hydrus-server-version]: https://github.com/hydrusnetwork/hydrus/releases/tag/v400
+[docker-hub]: https://hub.docker.com/r/mtbl/hydrus-server-docker/
+[docker-hub-tags]: https://hub.docker.com/r/mtbl/hydrus-server-docker/tags/
 [docker]: https://www.docker.com/
 [semantic-versioning]: https://semver.org/
 
-[hydrus-server-badge]: https://img.shields.io/badge/hydrus%20server-version%20393-blue.svg
+[hydrus-server-badge]: https://img.shields.io/badge/hydrus%20server-version%20400-blue.svg
 
-[travis]: https://travis-ci.com/mserajnik/hydrus-server-docker
-[travis-badge]: https://travis-ci.com/mserajnik/hydrus-server-docker.svg
+[travis]: https://travis-ci.com/imtbl/hydrus-server-docker
+[travis-badge]: https://travis-ci.com/imtbl/hydrus-server-docker.svg
 
-[docker-hub-badge]: https://img.shields.io/docker/automated/mserajnik/hydrus-server-docker.svg
+[docker-hub-badge]: https://img.shields.io/docker/automated/mtbl/hydrus-server-docker.svg
 
-[paypal]: https://www.paypal.me/mserajnik
-[paypal-image]: https://www.paypalobjects.com/webstatic/en_US/i/btn/png/blue-rect-paypal-26px.png
-[btc-image]: https://mserajnik.at/external/btc.png
-
-[maintainer]: https://github.com/mserajnik
-[issues]: https://github.com/mserajnik/hydrus-server-docker/issues/new
+[maintainer]: https://github.com/imtbl
+[issues]: https://github.com/imtbl/hydrus-server-docker/issues/new

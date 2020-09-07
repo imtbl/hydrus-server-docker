@@ -25,17 +25,17 @@ RUN \
   virtualenv venv && \
   . venv/bin/activate && \
   pip install \
-    beautifulsoup4~=4.9.0 \
+    beautifulsoup4~=4.9.1 \
     chardet~=3.0.4 \
-    lz4~=3.0.2 \
-    numpy~=1.18.2 \
-    opencv-python-headless~=4.2.0.34 \
-    pillow~=7.1.1 \
-    psutil~=5.7.0 \
+    lz4~=3.1.0 \
+    numpy~=1.19.1 \
+    opencv-python-headless~=4.4.0.42 \
+    pillow~=7.2.0 \
+    psutil~=5.7.2 \
     pylzma~=0.5.0 \
     pyopenssl~=19.1.0 \
     pyyaml~=5.3.1 \
-    requests~=2.23.0 \
+    requests~=2.24.0 \
     send2trash~=1.5.0 \
     service_identity~=18.1.0 \
     twisted~=20.3.0 && \

@@ -5,7 +5,7 @@
 This is a simple Debian-based Docker setup for running
 [hydrus server][hydrus-server] from source.
 
-The latest build runs [hydrus server version 410][hydrus-server-version].
+The latest build runs [hydrus server version 414][hydrus-server-version].
 
 Due to time constraints and the fact that changes to hydrus server are
 infrequent, a new release of this Docker setup is only made roughly
@@ -18,6 +18,7 @@ of this schedule (e.g., important changes to hydrus server).
 + [Install](#install)
   + [Dependencies](#dependencies)
   + [Updating](#updating)
+    + [Upgrading from 3.x to 4.x](#upgrading-from-3x-to-4x)
     + [Upgrading from 2.x to 3.x](#upgrading-from-2x-to-3x)
     + [Upgrading from 1.x to 2.x](#upgrading-from-1x-to-2x)
 + [Usage](#usage)
@@ -39,7 +40,7 @@ By default, this will pull the latest build. To specify an image with a
 specific version of hydrus server, provide the version number as tag, e.g.:
 
 ```zsh
-user@local:~$ docker pull mtbl/hydrus-server-docker:410
+user@local:~$ docker pull mtbl/hydrus-server-docker:414
 ```
 
 Alternatively, you can also build the image yourself:
@@ -71,13 +72,21 @@ are therefore always safe to simply install via the routine mentioned before.
 When necessary, this section will be expanded with upgrade guides to new major
 versions.
 
+#### Upgrading from 3.x to 4.x
+
+Upgrading from `3.x` to `4.x` can be done via pulling the updated image from
+Docker Hub or building it yourself and requires no further manual changes.
+
+`4.0.0` has introduced no breaking changes and merely reflects the switch to a
+new license (AGPLv3).
+
 #### Upgrading from 2.x to 3.x
 
 Upgrading from `2.x` to `3.x` can be done via pulling the updated image from
 Docker Hub or building it yourself and requires no further manual changes.
 
 Due to the introduction of OpenCV to hydrus server (which is hard to build on
-Alpine), the Docker image is now based on Debian instead of Alpine instead.
+Alpine), the Docker image is now based on Debian instead of Alpine.
 
 #### Upgrading from 1.x to 2.x
 
@@ -96,10 +105,10 @@ making it easier to adapt for future changes/dependencies.
 
 ### Ports
 
-First, you need to bind the exposed ports. This can be done automatically
-using `-P` but it is recommended to bind them manually instead since having
-changing ports every time you run a new container might be annoying when used
-in combination with other services.
+First, you need to bind the exposed ports. This can be done automatically using
+`-P` but it is recommended to bind them manually instead since having changing
+ports every time you run a new container might be annoying when used in
+combination with other services.
 
 hydrus-server-docker exposes the following three ports by default:
 
@@ -150,21 +159,21 @@ You are welcome to help out!
 
 ## License
 
-[MIT](LICENSE.md) © imtbl
+[AGPLv3](LICENSE) © imtbl
 
 [hydrus-server]: http://hydrusnetwork.github.io/hydrus/
-[hydrus-server-version]: https://github.com/hydrusnetwork/hydrus/releases/tag/v410
+[hydrus-server-version]: https://github.com/hydrusnetwork/hydrus/releases/tag/v414
 [docker-hub]: https://hub.docker.com/r/mtbl/hydrus-server-docker/
 [docker-hub-tags]: https://hub.docker.com/r/mtbl/hydrus-server-docker/tags/
 [docker]: https://www.docker.com/
 [semantic-versioning]: https://semver.org/
 
-[hydrus-server-badge]: https://img.shields.io/badge/hydrus%20server-version%20410-blue.svg
+[hydrus-server-badge]: https://img.shields.io/badge/hydrus%20server-version%20414-blue.svg
 
 [travis]: https://travis-ci.com/imtbl/hydrus-server-docker
 [travis-badge]: https://travis-ci.com/imtbl/hydrus-server-docker.svg
 
-[docker-hub-badge]: https://img.shields.io/docker/automated/mtbl/hydrus-server-docker.svg
+[docker-hub-badge]: https://img.shields.io/docker/cloud/automated/mtbl/hydrus-server-docker.svg
 
 [maintainer]: https://github.com/imtbl
 [issues]: https://github.com/imtbl/hydrus-server-docker/issues/new

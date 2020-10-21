@@ -7,9 +7,17 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [4.0.0] - 2020-10-22
+
 ### Changed
 
++ Updated hydrus server version
++ Updated dependencies
++ Switched to AGPLv3
+
 ## [3.29.0] - 2020-09-07
+
+### Changed
 
 + Updated hydrus server version
 + Updated dependencies
@@ -369,7 +377,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 + Initial release
 
-[Unreleased]: https://github.com/imtbl/hydrus-server-docker/compare/3.29.0...develop
+[Unreleased]: https://github.com/imtbl/hydrus-server-docker/compare/4.0.0...develop
+[4.0.0]: https://github.com/imtbl/hydrus-server-docker/compare/3.29.0...4.0.0
 [3.29.0]: https://github.com/imtbl/hydrus-server-docker/compare/3.28.0...3.29.0
 [3.28.0]: https://github.com/imtbl/hydrus-server-docker/compare/3.27.0...3.28.0
 [3.27.0]: https://github.com/imtbl/hydrus-server-docker/compare/3.26.0...3.27.0

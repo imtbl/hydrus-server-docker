@@ -1,3 +1,19 @@
+# hydrus-server-docker
+# Copyright (C) 2018-present  imtbl  https://github.com/imtbl
+
+# This program is free software: you can redistribute it and/or modify
+# it under the terms of the GNU Affero General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# (at your option) any later version.
+
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU Affero General Public License for more details.
+
+# You should have received a copy of the GNU Affero General Public License
+# along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
 FROM python:3.8-slim-buster
 
 ARG USER_ID=1000
@@ -25,12 +41,12 @@ RUN \
   virtualenv venv && \
   . venv/bin/activate && \
   pip install \
-    beautifulsoup4~=4.9.1 \
+    beautifulsoup4~=4.9.3 \
     chardet~=3.0.4 \
     lz4~=3.1.0 \
-    numpy~=1.19.1 \
-    opencv-python-headless~=4.4.0.42 \
-    pillow~=7.2.0 \
+    numpy~=1.19.2 \
+    opencv-python-headless~=4.4.0.44 \
+    pillow~=8.0.0 \
     psutil~=5.7.2 \
     pylzma~=0.5.0 \
     pyopenssl~=19.1.0 \

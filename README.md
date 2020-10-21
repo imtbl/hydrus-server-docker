@@ -5,7 +5,7 @@
 This is a simple Debian-based Docker setup for running
 [hydrus server][hydrus-server] from source.
 
-The latest build runs [hydrus server version 410][hydrus-server-version].
+The latest build runs [hydrus server version 414][hydrus-server-version].
 
 Due to time constraints and the fact that changes to hydrus server are
 infrequent, a new release of this Docker setup is only made roughly
@@ -39,7 +39,7 @@ By default, this will pull the latest build. To specify an image with a
 specific version of hydrus server, provide the version number as tag, e.g.:
 
 ```zsh
-user@local:~$ docker pull mtbl/hydrus-server-docker:410
+user@local:~$ docker pull mtbl/hydrus-server-docker:414
 ```
 
 Alternatively, you can also build the image yourself:
@@ -153,13 +153,13 @@ You are welcome to help out!
 [AGPLv3](LICENSE) © imtbl
 
 [hydrus-server]: http://hydrusnetwork.github.io/hydrus/
-[hydrus-server-version]: https://github.com/hydrusnetwork/hydrus/releases/tag/v410
+[hydrus-server-version]: https://github.com/hydrusnetwork/hydrus/releases/tag/v414
 [docker-hub]: https://hub.docker.com/r/mtbl/hydrus-server-docker/
 [docker-hub-tags]: https://hub.docker.com/r/mtbl/hydrus-server-docker/tags/
 [docker]: https://www.docker.com/
 [semantic-versioning]: https://semver.org/
 
-[hydrus-server-badge]: https://img.shields.io/badge/hydrus%20server-version%20410-blue.svg
+[hydrus-server-badge]: https://img.shields.io/badge/hydrus%20server-version%20414-blue.svg
 
 [travis]: https://travis-ci.com/imtbl/hydrus-server-docker
 [travis-badge]: https://travis-ci.com/imtbl/hydrus-server-docker.svg

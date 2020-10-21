@@ -18,6 +18,7 @@ of this schedule (e.g., important changes to hydrus server).
 + [Install](#install)
   + [Dependencies](#dependencies)
   + [Updating](#updating)
+    + [Upgrading from 3.x to 4.x](#upgrading-from-3x-to-4x)
     + [Upgrading from 2.x to 3.x](#upgrading-from-2x-to-3x)
     + [Upgrading from 1.x to 2.x](#upgrading-from-1x-to-2x)
 + [Usage](#usage)
@@ -70,6 +71,14 @@ are therefore always safe to simply install via the routine mentioned before.
 
 When necessary, this section will be expanded with upgrade guides to new major
 versions.
+
+#### Upgrading from 3.x to 4.x
+
+Upgrading from `3.x` to `4.x` can be done via pulling the updated image from
+Docker Hub or building it yourself and requires no further manual changes.
+
+`4.0.0` has introduced no breaking changes and merely reflects the switch to a
+new license (AGPLv3).
 
 #### Upgrading from 2.x to 3.x
 

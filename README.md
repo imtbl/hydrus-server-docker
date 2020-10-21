@@ -77,7 +77,7 @@ Upgrading from `2.x` to `3.x` can be done via pulling the updated image from
 Docker Hub or building it yourself and requires no further manual changes.
 
 Due to the introduction of OpenCV to hydrus server (which is hard to build on
-Alpine), the Docker image is now based on Debian instead of Alpine instead.
+Alpine), the Docker image is now based on Debian instead of Alpine.
 
 #### Upgrading from 1.x to 2.x
 
@@ -96,10 +96,10 @@ making it easier to adapt for future changes/dependencies.
 
 ### Ports
 
-First, you need to bind the exposed ports. This can be done automatically
-using `-P` but it is recommended to bind them manually instead since having
-changing ports every time you run a new container might be annoying when used
-in combination with other services.
+First, you need to bind the exposed ports. This can be done automatically using
+`-P` but it is recommended to bind them manually instead since having changing
+ports every time you run a new container might be annoying when used in
+combination with other services.
 
 hydrus-server-docker exposes the following three ports by default:
 
@@ -164,7 +164,7 @@ You are welcome to help out!
 [travis]: https://travis-ci.com/imtbl/hydrus-server-docker
 [travis-badge]: https://travis-ci.com/imtbl/hydrus-server-docker.svg
 
-[docker-hub-badge]: https://img.shields.io/docker/automated/mtbl/hydrus-server-docker.svg
+[docker-hub-badge]: https://img.shields.io/docker/cloud/automated/mtbl/hydrus-server-docker.svg
 
 [maintainer]: https://github.com/imtbl
 [issues]: https://github.com/imtbl/hydrus-server-docker/issues/new

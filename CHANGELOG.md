@@ -7,6 +7,14 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [4.2.0] - 2020-12-09
+
+### Changed
+
++ Based Docker image on Python 3.9
++ Updated hydrus server version
++ Updated dependencies
+
 ## [4.1.0] - 2020-11-11
 
 ### Changed
@@ -384,7 +392,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 + Initial release
 
-[Unreleased]: https://github.com/imtbl/hydrus-server-docker/compare/4.1.0...develop
+[Unreleased]: https://github.com/imtbl/hydrus-server-docker/compare/4.2.0...develop
+[4.2.0]: https://github.com/imtbl/hydrus-server-docker/compare/4.1.0...4.2.0
 [4.1.0]: https://github.com/imtbl/hydrus-server-docker/compare/4.0.0...4.1.0
 [4.0.0]: https://github.com/imtbl/hydrus-server-docker/compare/3.29.0...4.0.0
 [3.29.0]: https://github.com/imtbl/hydrus-server-docker/compare/3.28.0...3.29.0

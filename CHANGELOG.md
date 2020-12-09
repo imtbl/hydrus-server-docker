@@ -10,6 +10,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ### Changed
 
 + Based Docker image on Python 3.9
++ Updated dependencies
 
 ## [4.1.0] - 2020-11-11
 

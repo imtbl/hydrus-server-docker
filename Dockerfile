@@ -43,13 +43,13 @@ RUN \
   pip install \
     beautifulsoup4~=4.9.3 \
     chardet~=3.0.4 \
-    lz4~=3.1.0 \
+    lz4~=3.1.1 \
     numpy~=1.19.4 \
     opencv-python-headless~=4.4.0.46 \
     pillow~=8.0.1 \
     psutil~=5.7.3 \
     pylzma~=0.5.0 \
-    pyopenssl~=19.1.0 \
+    pyopenssl~=20.0.0 \
     pyyaml~=5.3.1 \
     requests~=2.25.0 \
     send2trash~=1.5.0 \

@@ -14,7 +14,7 @@
 # You should have received a copy of the GNU Affero General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-FROM python:3.8-slim-buster
+FROM python:3.9-slim-buster
 
 ARG USER_ID=1000
 ARG GROUP_ID=1000

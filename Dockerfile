@@ -42,16 +42,16 @@ RUN \
   . venv/bin/activate && \
   pip install \
     beautifulsoup4~=4.9.3 \
-    chardet~=3.0.4 \
-    lz4~=3.1.1 \
-    numpy~=1.19.4 \
-    opencv-python-headless~=4.4.0.46 \
-    pillow~=8.0.1 \
-    psutil~=5.7.3 \
+    chardet~=4.0.0 \
+    lz4~=3.1.3 \
+    numpy~=1.19.5 \
+    opencv-python-headless~=4.5.1.48 \
+    pillow~=8.1.0 \
+    psutil~=5.8.0 \
     pylzma~=0.5.0 \
-    pyopenssl~=20.0.0 \
-    pyyaml~=5.3.1 \
-    requests~=2.25.0 \
+    pyopenssl~=20.0.1 \
+    pyyaml~=5.4.1 \
+    requests~=2.25.1 \
     send2trash~=1.5.0 \
     service_identity~=18.1.0 \
     twisted~=20.3.0 && \
@@ -62,8 +62,7 @@ RUN \
   chown -R ${USER_ID}:${GROUP_ID} /usr/src/app && \
   chmod +x \
     server.py \
-    bin/swfrender_linux \
-    bin/upnpc_linux && \
+    bin/swfrender_linux && \
   mkdir /data && chown -R ${USER_ID}:${GROUP_ID} /data
 
 COPY docker-cmd-start.sh /usr/local/bin/start

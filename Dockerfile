@@ -44,7 +44,7 @@ RUN \
     beautifulsoup4~=4.9.3 \
     chardet~=4.0.0 \
     lz4~=3.1.3 \
-    numpy~=1.19.5 \
+    numpy~=1.20.1 \
     opencv-python-headless~=4.5.1.48 \
     pillow~=8.1.0 \
     psutil~=5.8.0 \

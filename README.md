@@ -2,16 +2,14 @@
 
 > [hydrus server][hydrus-server] running on Debian
 
+__Unmaintained:__ this project is no longer maintained. I suggest you check out
+[suika/hydrus][hydrus-docker] as an alternative (Docker images for both hydrus
+client and server are provided).
+
 This is a simple Debian-based Docker setup for running
 [hydrus server][hydrus-server] from source.
 
 The latest build runs [hydrus server version 430][hydrus-server-version].
-
-Due to time constraints and the fact that changes to hydrus server are
-infrequent, a new release of this Docker setup is only made roughly
-every fourth hydrus release. This comes out to about one release per month.
-Exceptions may be made in particular instances that warrant a release outside
-of this schedule (e.g., important changes to hydrus server).
 
 ## Table of contents
 
@@ -161,6 +159,7 @@ You are welcome to help out!
 
 [AGPLv3](LICENSE) © imtbl
 
+[hydrus-docker]: https://hub.docker.com/r/suika/hydrus
 [hydrus-server]: http://hydrusnetwork.github.io/hydrus/
 [hydrus-server-version]: https://github.com/hydrusnetwork/hydrus/releases/tag/v430
 [docker-hub]: https://hub.docker.com/r/mtbl/hydrus-server-docker/
